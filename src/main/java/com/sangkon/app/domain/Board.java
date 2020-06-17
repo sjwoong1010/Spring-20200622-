@@ -27,4 +27,7 @@ public class Board {
 
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    private User user;
 }
