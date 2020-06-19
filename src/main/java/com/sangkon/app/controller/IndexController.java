@@ -27,4 +27,9 @@ public class IndexController {
         model.addAttribute("boardList", boardList);
         return "index";
     }
+
+    @GetMapping("/board")
+    public String board() {
+        return "board/list";
+    }
 }
