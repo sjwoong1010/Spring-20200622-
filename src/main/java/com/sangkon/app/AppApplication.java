@@ -33,20 +33,22 @@ public class AppApplication {
 					.build()
 			);
 
+			user.setName("John Doe");
+			userRepository.save(user);
+
 			IntStream.rangeClosed(1, 200).forEach(index ->
-					boardRepository.save(
-								Board.builder()
-								.title("게시글 : " + index)
-								.subTitle("순서 : " + index)
-								.content("콘텐츠")
-								.boardType(BoardType.free)
-								.createdDate(LocalDateTime.now())
-								.updatedDate(LocalDateTime.now())
-								.user(user)
-								.build()
-						)
-					);
+				boardRepository.save(
+					Board.builder()
+					.title("게시글 : " + index)
+					.subTitle("순서 : " + index)
+					.content("콘텐츠"+index)
+					.boardType(BoardType.free)
+					.createdDate(LocalDateTime.now())
+					.updatedDate(LocalDateTime.now())
+					.user(user)
+					.build()
+				)
+			);
 		};
 	}
-
 }

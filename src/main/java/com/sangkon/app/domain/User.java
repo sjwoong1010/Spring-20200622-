@@ -26,4 +26,7 @@ public class User {
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
 
+    public void setName(String name) {
+        this.name = name;
+    }
 }
