@@ -23,7 +23,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(Model model) {
-        List<Board> boardList = boardRepository.findAllByContent("콘텐츠1");
+        List<Board> boardList = boardRepository.findAll();
         model.addAttribute("boardList", boardList);
         return "index";
     }
