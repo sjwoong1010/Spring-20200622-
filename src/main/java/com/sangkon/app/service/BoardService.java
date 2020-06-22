@@ -22,5 +22,13 @@ public class BoardService {
         System.out.println(pageable.getPageNumber());
         return boardRepository.findAll(pageable);
     }
+
+    public Board saveBoard(Board board) {
+        return boardRepository.save(board);
+    }
+
+    public Board getBoardITem(Long id) {
+        return boardRepository.findById(id).orElseGet(null);
+    }
 }
 

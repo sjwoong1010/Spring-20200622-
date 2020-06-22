@@ -27,8 +27,8 @@
         <a href="/board" class="btn btn-primary btn-block">등록</a>
     </div>
     <br/><br/><br/>
-    <div id="mainHide">
-        <table class="table table-sm">
+    <div id="mainHide" calss="table responsive-md">
+        <table class="table">
             <thead>
             <tr>
                 <th>#</th>
@@ -42,9 +42,9 @@
             <tr th:each="board : ${boardList}">
                 <td th:text="${board.idx}"></td>
                 <td th:text="${board.boardType.value}"></td>
-                <td><a href="#" th:text="${board.title}"></a></td>
-                <td th:text="${board.createdDate}"></td>
-                <td th:text="${board.updatedDate}"></td>
+                <td><a th:href="'/board/list/'+${board.idx}" th:text="${board.title}"></a></td>
+                <td th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd')}"></td>
+                <td th:text="${#temporals.format(board.updatedDate, 'yyyy-MM-dd')}"></td>
             </tr>
             </tbody>
         </table>
@@ -61,8 +61,7 @@
 
             <li class="page-item" th:each="page :${#numbers.sequence(startNumber, endNumber)}"
                 th:class="(${page} == ${boardList.number}+1) ? 'active'">
-                <a class="page-link" th:href="@{/board/list(page=${page})}" th:text="${page}"><span
-                        class="sr-only"></span></a>
+                <a class="page-link" th:href="@{/board/list(page=${page})}" th:text="${page}"><span class="sr-only"></span></a>
             </li>
 
             <li class="page-item" th:style="${boardList.last} ? 'display:none'">
